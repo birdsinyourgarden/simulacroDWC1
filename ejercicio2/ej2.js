@@ -1,70 +1,105 @@
-// Ejercicios: Condicionales en JavaScript 
-
 // 1. if simple
 console.log("Ejercicio 1: if simple");
 // Escribe una función llamada 'esAdolescente' que tome una edad como parámetro
-// y devuelva true si la edad está entre 13 y 19 (inclusive), y false en caso contrario.
+// y devuelva true si la edad está entre 13 y 19 (inclusive).
 
-// Tu código aquí
+function esAdolescente(edad) {
+    if (edad >= 13 && edad <= 19) {
+        return true;
+    }
+    return false;
+}
 
-console.log(esAdolescente(15)); // Debería mostrar: true
-console.log(esAdolescente(22)); // Debería mostrar: false
+console.log(esAdolescente(15)); // true
+console.log(esAdolescente(22)); // false
+
+
 
 // 2. if-else
 console.log("\nEjercicio 2: if-else");
-// Escribe una función llamada 'evaluarTemperatura' que tome una temperatura (en °C)
-// y devuelva 'Calor' si la temperatura es 30 o mayor, y 'Frío' en caso contrario.
+// Devuelve 'Calor' si la temperatura es 30 o mayor, y 'Frío' en caso contrario.
 
-// Tu código aquí
+function evaluarTemperatura(temp) {
+    if (temp >= 30) {
+        return 'Calor';
+    } else {
+        return 'Frío';
+    }
+}
 
-console.log(evaluarTemperatura(35)); // Debería mostrar: 'Calor'
-console.log(evaluarTemperatura(20)); // Debería mostrar: 'Frío'
+console.log(evaluarTemperatura(35)); // 'Calor'
+console.log(evaluarTemperatura(20)); // 'Frío'
+
+
 
 // 3. if-else if
 console.log("\nEjercicio 3: if-else if");
-// Escribe una función llamada 'clasificarNumero' que tome un número como parámetro
-// y devuelva 'Negativo' si el número es menor que 0, 'Cero' si es igual a 0, 
-// y 'Positivo' si es mayor que 0.
+// Devuelve 'Negativo', 'Cero' o 'Positivo'
 
-// Tu código aquí
+function clasificarNumero(num) {
+    if (num < 0) {
+        return 'Negativo';
+    } else if (num === 0) {
+        return 'Cero';
+    } else {
+        return 'Positivo';
+    }
+}
 
-console.log(clasificarNumero(-5)); // Debería mostrar: 'Negativo'
-console.log(clasificarNumero(0));  // Debería mostrar: 'Cero'
-console.log(clasificarNumero(8));  // Debería mostrar: 'Positivo'
+console.log(clasificarNumero(-5)); // 'Negativo'
+console.log(clasificarNumero(0));  // 'Cero'
+console.log(clasificarNumero(8));  // 'Positivo'
+
+
 
 // 4. switch
 console.log("\nEjercicio 4: switch");
-// Escribe una función llamada 'obtenerTipoAnimal' que tome un nombre de animal
-// ('perro', 'gato', 'pez', etc.) y devuelva un mensaje como 'Mamífero' para perro y gato,
-// 'Acuático' para pez, y 'Tipo desconocido' para otros casos.
+// Devuelve 'Mamífero' para perro y gato, 'Acuático' para pez, y 'Tipo desconocido' en otros casos.
 
-// Tu código aquí
+function obtenerTipoAnimal(animal) {
+    switch (animal) {
+        case 'perro':
+        case 'gato':
+            return 'Mamífero';
+        case 'pez':
+            return 'Acuático';
+        default:
+            return 'Tipo desconocido';
+    }
+}
 
-console.log(obtenerTipoAnimal('gato'));  // Debería mostrar: 'Mamífero'
-console.log(obtenerTipoAnimal('pez'));   // Debería mostrar: 'Acuático'
-console.log(obtenerTipoAnimal('ave'));   // Debería mostrar: 'Tipo desconocido'
+console.log(obtenerTipoAnimal('gato'));  // 'Mamífero'
+console.log(obtenerTipoAnimal('pez'));   // 'Acuático'
+console.log(obtenerTipoAnimal('ave'));   // 'Tipo desconocido'
+
+
 
 // 5. Condicional ternario
 console.log("\nEjercicio 5: Condicional ternario");
-// Escribe una función llamada 'evaluarEdad' que tome una edad como parámetro
-// y devuelva 'Mayor de edad' si es 18 o mayor, y 'Menor de edad' si es menor.
-// Utiliza el operador ternario.
+// Devuelve 'Mayor de edad' si es >=18, de lo contrario 'Menor de edad'.
 
-// Tu código aquí
+function evaluarEdad(edad) {
+    return edad >= 18 ? 'Mayor de edad' : 'Menor de edad';
+}
 
-console.log(evaluarEdad(21)); // Debería mostrar: 'Mayor de edad'
-console.log(evaluarEdad(16)); // Debería mostrar: 'Menor de edad'
+console.log(evaluarEdad(21)); // 'Mayor de edad'
+console.log(evaluarEdad(16)); // 'Menor de edad'
+
+
 
 // 6. Combinación de condicionales
 console.log("\nEjercicio 6: Combinación de condicionales");
-// Escribe una función llamada 'puedeComprarAlcohol' que tome dos parámetros:
-// edad (número) y tieneIdentificacion (booleano).
-// La función debe devolver true si la persona tiene 21 años o más Y tiene identificación,
-// y false en cualquier otro caso.
+// Devuelve true si edad >=21 y tieneIdentificacion == true
 
-// Tu código aquí
+function puedeComprarAlcohol(edad, tieneIdentificacion) {
+    if (edad >= 21 && tieneIdentificacion) {
+        return true;
+    }
+    return false;
+}
 
-console.log(puedeComprarAlcohol(23, true));  // Debería mostrar: true
-console.log(puedeComprarAlcohol(20, true));  // Debería mostrar: false
-console.log(puedeComprarAlcohol(23, false)); // Debería mostrar: false
+console.log(puedeComprarAlcohol(23, true));  // true
+console.log(puedeComprarAlcohol(20, true));  // false
+console.log(puedeComprarAlcohol(23, false)); // false
+
 

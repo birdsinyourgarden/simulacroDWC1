@@ -1,5 +1,3 @@
-// Ejercicios: forEach, objects, arrays en JavaScript 
-
 // Datos de ejemplo
 const numeros = [1, 2, 3, 4, 5];
 const palabras = ['JavaScript', 'es', 'genial'];
@@ -9,102 +7,87 @@ const personas = [
   { nombre: 'María', edad: 25 }
 ];
 
+
 // 1. forEach
 console.log("Ejercicio 1: forEach");
-// Utiliza forEach para imprimir cada número del array 'numeros' multiplicado por 2.
+// Imprimir cada número multiplicado por 2.
 
-// Tu código aquí
+numeros.forEach(num => {
+  console.log(num * 2);
+});
 
-// Resultado esperado:
-// 2
-// 4
-// 6
-// 8
-// 10
 
 // 2. forEach con índice
 console.log("\nEjercicio 2: forEach con índice");
-// Utiliza forEach para imprimir cada palabra del array 'palabras' junto con su índice.
+// Imprimir palabra + índice.
 
-// Tu código aquí
+palabras.forEach((palabra, index) => {
+  console.log(`Palabra en índice ${index}: ${palabra}`);
+});
 
-// Resultado esperado:
-// Palabra en índice 0: JavaScript
-// Palabra en índice 1: es
-// Palabra en índice 2: genial
 
 // 3. Métodos de Date
 console.log("\nEjercicio 3: Métodos de Date");
-// Crea una fecha cualquiera y cámbiale el año a 2030 usando setFullYear()
+// Crear fecha y cambiar año a 2030.
 
-// Tu código aquí
+let fecha = new Date(2024, 5, 10);
+fecha.setFullYear(2030);
+console.log(fecha);
 
-// Resultado esperado: una fecha con año 2030
 
 // 4. Conversión de números
 console.log("\nEjercicio 4: Conversión de números");
-// Convierte el número 13.567 a un string con exactamente dos decimales.
+// Convertir 13.567 a string con 2 decimales.
 
-// Tu código aquí
+let numeroConvertido = (13.567).toFixed(2);
+console.log(numeroConvertido);
 
-// Resultado esperado: "13.57"
 
 // 5. map con strings
 console.log("\nEjercicio 5: map con strings");
-// Utiliza map para crear un nuevo array con la longitud de cada palabra en el array 'palabras'.
+// Nuevo array con longitudes.
 
-// Tu código aquí
-
+let longitudPalabras = palabras.map(p => p.length);
 console.log(longitudPalabras);
-// Resultado esperado: [10, 2, 6]
+
 
 // 6. map con objetos
 console.log("\nEjercicio 6: map con objetos");
-// Utiliza map para crear un nuevo array de strings que contenga solo los nombres de las personas en el array 'personas'.
+// Nuevo array solo con nombres.
 
-// Tu código aquí
-
+let soloNombres = personas.map(persona => persona.nombre);
 console.log(soloNombres);
-// Resultado esperado: ['Ana', 'Juan', 'María']
+
 
 // 7. Información de fecha actual
 console.log("\nEjercicio 7: Información de fecha actual");
-// Crea un objeto Date con la fecha actual y muestra por consola:
-// - año
-// - mes (sumando 1 porque inicia en 0)
-// - día del mes 
-// usando los métodos correspondientes
 
-// Tu código aquí
+let fechaActual = new Date();
+console.log("Año:", fechaActual.getFullYear());
+console.log("Mes:", fechaActual.getMonth() + 1);
+console.log("Día:", fechaActual.getDate());
 
-// Resultado esperado:
-// Año: 2024
-// Mes: 11
-// Día: 26
 
 // 8. filter con números
 console.log("\nEjercicio 8: filter con números");
-// Utiliza filter para crear un nuevo array que contenga solo los números pares del array 'numeros'.
+// Filtrar números pares.
 
-// Tu código aquí
-
+let numerosPares = numeros.filter(n => n % 2 === 0);
 console.log(numerosPares);
-// Resultado esperado: [2, 4]
+
 
 // 9. filter con objetos
 console.log("\nEjercicio 9: filter con objetos");
-// Utiliza filter para crear un nuevo array que contenga solo las personas mayores de 27 años del array 'personas'.
+// Filtrar personas mayores de 27.
 
-// Tu código aquí
-
+let mayoresDe27 = personas.filter(p => p.edad > 27);
 console.log(mayoresDe27);
-// Resultado esperado: [{ nombre: 'Ana', edad: 28 }, { nombre: 'Juan', edad: 32 }]
+
 
 // 10. find
 console.log("\nEjercicio 10: find");
-// Utiliza find para encontrar la primera persona que tenga exactamente 25 años en el array 'personas'.
+// Buscar persona con edad 25.
 
-// Tu código aquí
-
+let persona25 = personas.find(p => p.edad === 25);
 console.log(persona25);
-// Resultado esperado: { nombre: 'María', edad: 25 }
+

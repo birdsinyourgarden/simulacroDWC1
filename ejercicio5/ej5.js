@@ -31,3 +31,46 @@ calculatePrice('*#')   // 49  (-1 + 50)
 calculatePrice('@@@')  // 300 (100 + 100 + 100)
 calculatePrice('#@')   // 50  (-50 + 100)
 calculatePrice('#@Z')  // undefined (Z es desconocido)
+
+/**
+ * @param {string} ornaments
+ * @return {number | undefined} 
+ */
+function calculatePrice(ornaments) {
+  const values = {
+    '*': 1,   
+    'o': 5,   
+    '^': 10,  
+    '#': 50,  
+    '@': 100  
+  };
+
+  let total = 0;
+
+  for (let i = 0; i < ornaments.length; i++) {
+    const current = values[ornaments[i]];
+    const next = values[ornaments[i + 1]];
+
+    if (current === undefined) return undefined;
+
+    if (next !== undefined && current < next) {
+      total -= current;
+    } else {
+      total += current;
+    }
+  }
+
+  return total;
+}
+
+console.log(calculatePrice('***'));   // 3
+console.log(calculatePrice('*o'));    // 4
+console.log(calculatePrice('o*'));    // 6
+console.log(calculatePrice('*o*'));   // 5
+console.log(calculatePrice('**o*'));  // 6
+console.log(calculatePrice('o***'));  // 8
+console.log(calculatePrice('*o@'));   // 94
+console.log(calculatePrice('*#'));    // 49
+console.log(calculatePrice('@@@'));   // 300
+console.log(calculatePrice('#@'));    // 50
+console.log(calculatePrice('#@Z'));   // undefined
